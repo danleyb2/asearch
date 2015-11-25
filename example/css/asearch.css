@@ -1,0 +1,96 @@
+.asearch {
+    padding: 21px;
+    font: 13px/19px "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.asearch .result-stream {
+    margin: 8px 0 21px;
+    width: 502px;
+    border-radius: 5px;
+    position: relative;
+    max-height: 400px;
+    overflow-y: scroll;
+}
+
+.asearch section {
+    border-left: 1px solid rgba(0, 0, 0, 0.13);
+    border-right: 1px solid rgba(0, 0, 0, 0.13);
+}
+
+.asearch .postmeta {
+    float: right;
+    margin: 0 0 0 13px;
+    text-align: right;
+}
+
+.asearch .postmeta nav {
+    visibility: hidden
+}
+
+.asearch .postmeta span {
+    color: rgba(0, 0, 0, 0.50);
+    font-size: 11.5px;
+    line-height: 19.5px;
+}
+
+.asearch .postmeta span.time {
+    display: inline-block;
+    color: rgba(0, 0, 0, 0.34)
+}
+
+.asearch .name {
+    color: black;
+    font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.asearch .name + .location {
+    margin-left: 5px;
+    font-size: 11px;
+    line-height: 19.5px;
+    color: rgba(0, 0, 0, 0.34)
+}
+
+.asearch p {
+    margin: 2px 0 0;
+    color: black;
+}
+
+.asearch .postcontent {
+    white-space: pre-wrap;
+    word-wrap: break-word
+}
+
+.asearch .opener {
+    min-height: 50px;
+    padding: 13px 13px 13px 76px;
+}
+.asearch .active{
+    background-color: darkgrey;
+}
+
+.asearch .avatar {
+    left: 14px;
+    position: absolute;
+}
+
+.asearch section {
+    background-color: white;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 3px;
+}
+
+
+.user3 {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAMAAAAPdrEwAAAAD1BMVEV5t0D///95t0FlrhBOpQAOrFuyAAAApklEQVRYhe3XQQrAIAxEUWu8/5m7dwIZQoWW/lnHB7bg6BhlZlySmPU6I9DQ0NDQNj0lPTpxQrKvsuipzqiXOXQ2Aw0NDQ19mt6S0vVMQq+9LlZvRgusCclMaF02ty8z2vndn2ZcH6ChoaFfQnuHqkPXb5nkmHfopAqcoeRR5hSYtbXWZzQuC06goaGhv04fO1Qfq4KDBXawdp0f8r57CDQ0NPTv6BtigxcbWOyRcwAAAABJRU5ErkJggg==);
+}

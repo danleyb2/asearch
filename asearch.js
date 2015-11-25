@@ -83,7 +83,7 @@ function activePrev(evt){
     if(prev===null){}else {
         active.classList.remove('active');
         prev.classList.add('active');
-        //updateInput();
+        updateInput(prev);
         prev.scrollIntoView(false);
 
     }
@@ -96,11 +96,15 @@ function activeNext(evt){
     if(next===null){}else {
         active.classList.remove('active');
         next.classList.add('active');
+        updateInput(next);
         next.scrollIntoView(false);
 
     }
 
 
+}
+function updateInput(a){
+    input.value=a.querySelector('.name').textContent;
 }
 function updateDisplay(data){
     resultStream.innerHTML='';

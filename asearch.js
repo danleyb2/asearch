@@ -47,13 +47,15 @@ var input;
 var resultStream;
 window.onload= function () {
     form=document.querySelector('#search');
-    resultStream=document.querySelector('.stream');
+    resultStream=document.querySelector('.result-stream');
+    //document.onkeydown=keyListener;
 
     //rTemplate=document.querySelector('#template').cloneNode(true);
     //rTemplate.removeAttribute('style');
     //form.addEventListener('submit',search);
 
     input=form.querySelector('input');
+    input.onkeydown=keyListener;
     //input.addEventListener('change',textChange);
     input.addEventListener('input',textChange);
     input.addEventListener('blur', function (evt) {
@@ -62,11 +64,50 @@ window.onload= function () {
 
 
 };
+function keyListener(evt){
+    switch (evt.keyCode){
+        case 38:
+            evt.preventDefault();
+            activePrev(evt);
+            break;
+        case 40:
+            evt.preventDefault();
+            activeNext(evt);
+            //return true;
+            break;
+    }
+}
+function activePrev(evt){
+    var active=resultStream.querySelector('.active');
+    var prev=active.previousSibling;
+    if(prev===null){}else {
+        active.classList.remove('active');
+        prev.classList.add('active');
+        //updateInput();
+        prev.scrollIntoView(false);
+
+    }
+
+
+}
+function activeNext(evt){
+    var active=resultStream.querySelector('.active');
+    var next=active.nextSibling;
+    if(next===null){}else {
+        active.classList.remove('active');
+        next.classList.add('active');
+        next.scrollIntoView(false);
+
+    }
+
+
+}
 function updateDisplay(data){
     resultStream.innerHTML='';
     data.forEach(function (rst) {
         resultStream.appendChild(render(rTemplate,rst));
     });
+    if(data.length)resultStream.firstChild.classList.add('active');
 }
 
 function textChange(evt){
@@ -75,7 +116,6 @@ function textChange(evt){
     if(History[q]===undefined){
         search(q);
     }else{
-        console.log('rendering from history');
        updateDisplay(History[q])
     }
 }

@@ -1,6 +1,7 @@
 var searchAjax = {
     History: {},
     useHistory:true,
+    useLocalStorage:true,
 
     init: function (config) {
 
@@ -35,11 +36,22 @@ var searchAjax = {
     textInput: function (evt) {
         var q = evt.target.value.trim();
         if (q == '')return searchAjax.updateDisplay([]);
-        if (searchAjax.History[q] === undefined) {
+        if(searchAjax.useHistory){
+            if(searchAjax.useLocalStorage){
+                if (localStorage.hasOwnProperty(q)) {
+                    searchAjax.search(q);
+                } else {
+                    searchAjax.updateDisplay(localStorage.getItem(q))
+                }
+            }else {
+                if (searchAjax.History[q] === undefined) {
+                    searchAjax.search(q);
+                } else {
+                    searchAjax.updateDisplay(searchAjax.History[q])
+                }
+            }
+        }else{
             searchAjax.search(q);
-        } else {
-            console.log('from history');
-            searchAjax.updateDisplay(searchAjax.History[q])
         }
     },
     activePrev: function (evt) {
@@ -101,7 +113,13 @@ var searchAjax = {
             searchAjax.XMLHTTPObject.onreadystatechange = function () {
                 if (searchAjax.XMLHTTPObject.status == 200 && searchAjax.XMLHTTPObject.readyState == 4) {
                     var response = JSON.parse(searchAjax.XMLHTTPObject.responseText);
-                    if(searchAjax.useHistory)searchAjax.History[q] = response;
+                    if(searchAjax.useHistory){
+                        if(searchAjax.useLocalStorage){
+                            localStorage.setItem(q,response);
+                        }else {
+                            searchAjax.History[q] = response;
+                        }
+                    }
                     searchAjax.updateDisplay(response);
                 }
             };

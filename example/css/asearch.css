@@ -89,7 +89,26 @@
     height: 50px;
     border-radius: 3px;
 }
-
+input[name='search'] {
+    height: 28px;
+    width: 100%;
+    padding: 3px 9px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    vertical-align: bottom;
+    border-radius: 57px;
+    border: 1px solid rgba(0, 0, 0, .21);
+    border-top-color: rgba(0, 0, 0, .34);
+    box-shadow: 0 1px white, 0 1px 2px rgba(0, 0, 0, .13) inset;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
+    font-size: large;
+}
 
 .user3 {
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAMAAAAPdrEwAAAAD1BMVEV5t0D///95t0FlrhBOpQAOrFuyAAAApklEQVRYhe3XQQrAIAxEUWu8/5m7dwIZQoWW/lnHB7bg6BhlZlySmPU6I9DQ0NDQNj0lPTpxQrKvsuipzqiXOXQ2Aw0NDQ19mt6S0vVMQq+9LlZvRgusCclMaF02ty8z2vndn2ZcH6ChoaFfQnuHqkPXb5nkmHfopAqcoeRR5hSYtbXWZzQuC06goaGhv04fO1Qfq4KDBXawdp0f8r57CDQ0NPTv6BtigxcbWOyRcwAAAABJRU5ErkJggg==);

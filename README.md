@@ -33,6 +33,7 @@ var config = {
     'input': '.search-input',               //search input form id or class
     'url': 'search.php?q=',                 //ajax request url via GET returns JSON array
     'resultsHolder': '.result-stream'       //DOM element that templates will be appended to
+    'useLocalStorage':true                  //Use local storage to store search history
 };
 ```
 

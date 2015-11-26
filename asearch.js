@@ -9,6 +9,7 @@ var searchAjax = {
         this.resultStream = document.querySelector(config.resultsHolder);
         this.template = config.template;
         this.url=config.url;
+        if(config.useLocalStorage==false)this.useLocalStorage=false;
 
         if(this.input==null||this.resultStream==null||this.template==null||this.url==null){}
         else {

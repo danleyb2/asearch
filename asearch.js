@@ -85,7 +85,7 @@ var searchAjax = {
         searchAjax.input.value = a.querySelector('.name').textContent;
     },
     render: function (template, values) {
-        var tags = template.match(/{([a-z1-9\s]+)+}/g);
+        var tags = template.match(/{\s*([\w]+)+\s*}/g);
         var keys = tags.map(function (v) {
             return v.replace(/{|}/g, '');
         });

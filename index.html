@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=640">
+
+    <link rel="stylesheet" href="stylesheets/core.css" media="screen">
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+
+    <script type="text/javascript" src="javascripts/modernizr.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+    <title>Asearch by danleyb2</title>
+  </head>
+
+  <body>
+    <a id="forkme_banner" href="https://github.com/danleyb2/asearch">View on GitHub</a>
+    <div class="shell">
+
+      <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>Asearch</h1>
+            <h2></h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header>
+
+      <section id="downloads">
+        <span class="inner">
+          <a href="https://github.com/danleyb2/asearch/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/danleyb2/asearch/tarball/master" class="tgz"><em>download</em> .TGZ</a>
+        </span>
+      </section>
+
+
+      <span class="banner-fix"></span>
+
+
+      <section id="main_content">
+        <h1>
+<a id="simple-ajax-search" class="anchor" href="#simple-ajax-search" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Simple Ajax search</h1>
+
+<p>You only need to provide a search url and create a template for the response</p>
+
+<h3>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>usage</h3>
+
+<p>insert before end of body tag
+<code>&lt;script type="text/javascript" src="&lt;path to aserch.js&gt;"&gt;&lt;/script&gt;</code></p>
+
+<p>create a result template.<br>
+The JSON result keys values will replace the brackets</p>
+
+<pre><code>var resultTemplate =
+    '&lt;section class="opener"&gt;' +
+    '&lt;div class="avatar user3"&gt;' +
+    '&lt;/div&gt; ' +
+    '&lt;div class="postmeta"&gt; ' + 'last seen ' +
+    '&lt;span class="time"&gt;{time}&lt;/span&gt;  ' +
+    '&lt;/div&gt;   ' +
+    '&lt;span class="name"&gt;{name }&lt;/span&gt;' +
+    '&lt;span class="location"&gt;from {location}&lt;/span&gt;  ' +
+    '&lt;p&gt;{about}&lt;/p&gt; ' +
+    '&lt;/section&gt;';
+</code></pre>
+
+<p>create a config object</p>
+
+<pre><code>var config = {
+    'template': resultTemplate,             //used to render the result
+    'useHistory': true,                     //if false, every search result is got from the sever
+    'input': '.search-input',               //search input form id or class
+    'url': 'search.php?q=',                 //ajax request url via GET returns JSON array
+    'resultsHolder': '.result-stream'       //DOM element that templates will be appended to
+    'useLocalStorage':true                  //Use local storage to store search history
+};
+</code></pre>
+
+<p>then init <code>asearch.js</code> <br> <code>searchAjax.init(config);</code></p>
+
+<p>it will do the rest<br></p>
+      </section>
+
+      <footer>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <p>this project by <a href="https://github.com/danleyb2">danleyb2</a> can be found on <a href="https://github.com/danleyb2/asearch">GitHub</a></p>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+        <p>Generated with <a href="https://pages.github.com">GitHub Pages</a> using Merlot</p>
+        <span class="octocat"></span>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>

@@ -1,52 +1,42 @@
-<!DOCTYPE html>
+<!doctype html>
+<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
+<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on https://github.com/jonrohan -->
 <html>
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=640">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <link rel="stylesheet" href="stylesheets/core.css" media="screen">
-    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)">
-    <link rel="stylesheet" href="stylesheets/github-light.css">
+  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen">
+  <link rel="stylesheet" href="stylesheets/github-dark.css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/script.js"></script>
 
-    <script type="text/javascript" src="javascripts/modernizr.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function () {
-        $('#main_content').headsmart()
-      })
-    </script>
-    <title>Asearch by danleyb2</title>
-  </head>
+  <title>Asearch</title>
+  <meta name="description" content="simple ajax search">
 
-  <body>
-    <a id="forkme_banner" href="https://github.com/danleyb2/asearch">View on GitHub</a>
-    <div class="shell">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 
-      <header>
-        <span class="ribbon-outer">
-          <span class="ribbon-inner">
-            <h1>Asearch</h1>
-            <h2></h2>
-          </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
-      </header>
+</head>
 
-      <section id="downloads">
-        <span class="inner">
-          <a href="https://github.com/danleyb2/asearch/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/danleyb2/asearch/tarball/master" class="tgz"><em>download</em> .TGZ</a>
-        </span>
-      </section>
+<body>
 
-
-      <span class="banner-fix"></span>
-
-
-      <section id="main_content">
-        <h1>
+  <div class="wrapper">
+    <header>
+      <h1 class="title">Asearch</h1>
+    </header>
+    <div id="container">
+      <p class="tagline">simple ajax search</p>
+      <div id="main" role="main">
+        <div class="download-bar">
+        <div class="inner">
+          <a href="https://github.com/danleyb2/asearch/tarball/master" class="download-button tar"><span>Download</span></a>
+          <a href="https://github.com/danleyb2/asearch/zipball/master" class="download-button zip"><span>Download</span></a>
+          <a href="https://github.com/danleyb2/asearch" class="code">View Asearch on GitHub</a>
+        </div>
+        <span class="blc"></span><span class="trc"></span>
+        </div>
+        <article class="markdown-body">
+          <h1>
 <a id="simple-ajax-search" class="anchor" href="#simple-ajax-search" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Simple Ajax search</h1>
 
 <p>You only need to provide a search url and create a template for the response</p>
@@ -54,56 +44,58 @@
 <h3>
 <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>usage</h3>
 
-<p>insert before end of body tag
+<p>insert before end of body tag<br>
 <code>&lt;script type="text/javascript" src="&lt;path to aserch.js&gt;"&gt;&lt;/script&gt;</code></p>
 
 <p>create a result template.<br>
 The JSON result keys values will replace the brackets</p>
 
-<pre><code>var resultTemplate =
-    '&lt;section class="opener"&gt;' +
-    '&lt;div class="avatar user3"&gt;' +
-    '&lt;/div&gt; ' +
-    '&lt;div class="postmeta"&gt; ' + 'last seen ' +
-    '&lt;span class="time"&gt;{time}&lt;/span&gt;  ' +
-    '&lt;/div&gt;   ' +
-    '&lt;span class="name"&gt;{name }&lt;/span&gt;' +
-    '&lt;span class="location"&gt;from {location}&lt;/span&gt;  ' +
-    '&lt;p&gt;{about}&lt;/p&gt; ' +
-    '&lt;/section&gt;';
-</code></pre>
+<div class="highlight highlight-source-js"><pre>    <span class="pl-k">var</span> resultTemplate <span class="pl-k">=</span>
+        <span class="pl-s"><span class="pl-pds">'</span>&lt;section class="opener"&gt;<span class="pl-pds">'</span></span> <span class="pl-k">+</span>
+        <span class="pl-s"><span class="pl-pds">'</span>&lt;div class="avatar user3"&gt;<span class="pl-pds">'</span></span> <span class="pl-k">+</span>
+        <span class="pl-s"><span class="pl-pds">'</span>&lt;/div&gt; <span class="pl-pds">'</span></span> <span class="pl-k">+</span>
+        <span class="pl-s"><span class="pl-pds">'</span>&lt;div class="postmeta"&gt; <span class="pl-pds">'</span></span> <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span>last seen <span class="pl-pds">'</span></span> <span class="pl-k">+</span>
+        <span class="pl-s"><span class="pl-pds">'</span>&lt;span class="time"&gt;{time}&lt;/span&gt;  <span class="pl-pds">'</span></span> <span class="pl-k">+</span>
+        <span class="pl-s"><span class="pl-pds">'</span>&lt;/div&gt;   <span class="pl-pds">'</span></span> <span class="pl-k">+</span>
+        <span class="pl-s"><span class="pl-pds">'</span>&lt;span class="name"&gt;{name }&lt;/span&gt;<span class="pl-pds">'</span></span> <span class="pl-k">+</span>
+        <span class="pl-s"><span class="pl-pds">'</span>&lt;span class="location"&gt;from {location}&lt;/span&gt;  <span class="pl-pds">'</span></span> <span class="pl-k">+</span>
+        <span class="pl-s"><span class="pl-pds">'</span>&lt;p&gt;{about}&lt;/p&gt; <span class="pl-pds">'</span></span> <span class="pl-k">+</span>
+        <span class="pl-s"><span class="pl-pds">'</span>&lt;/section&gt;<span class="pl-pds">'</span></span>;</pre></div>
 
 <p>create a config object</p>
 
-<pre><code>var config = {
-    'template': resultTemplate,             //used to render the result
-    'useHistory': true,                     //if false, every search result is got from the sever
-    'input': '.search-input',               //search input form id or class
-    'url': 'search.php?q=',                 //ajax request url via GET returns JSON array
-    'resultsHolder': '.result-stream'       //DOM element that templates will be appended to
-    'useLocalStorage':true                  //Use local storage to store search history
-};
-</code></pre>
+<div class="highlight highlight-source-js"><pre>    <span class="pl-k">var</span> config <span class="pl-k">=</span> {
+        <span class="pl-s"><span class="pl-pds">'</span>template<span class="pl-pds">'</span></span><span class="pl-k">:</span> resultTemplate,             <span class="pl-c">//used to render the result</span>
+        <span class="pl-s"><span class="pl-pds">'</span>useHistory<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-c1">true</span>,                     <span class="pl-c">//if false, every search result is got from the sever</span>
+        <span class="pl-s"><span class="pl-pds">'</span>input<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>.search-input<span class="pl-pds">'</span></span>,               <span class="pl-c">//search input form id or class</span>
+        <span class="pl-s"><span class="pl-pds">'</span>url<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>search.php?q=<span class="pl-pds">'</span></span>,                 <span class="pl-c">//ajax request url via GET returns JSON array</span>
+        <span class="pl-s"><span class="pl-pds">'</span>resultsHolder<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>.result-stream<span class="pl-pds">'</span></span>       <span class="pl-c">//DOM element that templates will be appended to</span>
+        <span class="pl-s"><span class="pl-pds">'</span>useLocalStorage<span class="pl-pds">'</span></span><span class="pl-k">:</span><span class="pl-c1">true</span>                  <span class="pl-c">//Use local storage to store search history</span>
+    };</pre></div>
 
-<p>then init <code>asearch.js</code> <br> <code>searchAjax.init(config);</code></p>
-
-<p>it will do the rest<br></p>
-      </section>
-
-      <footer>
-        <span class="ribbon-outer">
-          <span class="ribbon-inner">
-            <p>this project by <a href="https://github.com/danleyb2">danleyb2</a> can be found on <a href="https://github.com/danleyb2/asearch">GitHub</a></p>
-          </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
-        <p>Generated with <a href="https://pages.github.com">GitHub Pages</a> using Merlot</p>
-        <span class="octocat"></span>
-      </footer>
-
+<p>then init <code>asearch.js</code><br>
+<code>searchAjax.init(config);</code><br>
+it will do the rest.</p>
+        </article>
+      </div>
     </div>
+    <footer>
+      <div class="owner">
+      <p><a href="https://github.com/danleyb2" class="avatar"><img src="https://avatars2.githubusercontent.com/u/9919961?v=3&amp;s=60" width="48" height="48"></a> <a href="https://github.com/danleyb2">danleyb2</a> maintains <a href="https://github.com/danleyb2/asearch">Asearch</a></p>
 
-    
-  </body>
+
+      </div>
+      <div class="creds">
+        <small>This page generated using <a href="https://pages.github.com/">GitHub Pages</a><br>theme by <a href="https://twitter.com/jonrohan/">Jon Rohan</a></small>
+      </div>
+    </footer>
+  </div>
+  <div class="current-section">
+    <a href="#top">Scroll to top</a>
+    <a href="https://github.com/danleyb2/asearch/tarball/master" class="tar">tar</a><a href="https://github.com/danleyb2/asearch/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
+    <p class="name"></p>
+  </div>
+
+  
+</body>
 </html>

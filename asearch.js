@@ -11,7 +11,10 @@ var searchAjax = {
         this.url=config.url;
         if(config.useLocalStorage==false)this.useLocalStorage=false;
 
-        if(this.input==null||this.resultStream==null||this.template==null||this.url==null){}
+        if (this.input == null || this.resultStream == null || this.template == null || this.url == null) {
+            console.error("Initialization error!!");
+
+        }
         else {
             this.XMLHTTPObject = new XMLHttpRequest();
             this.input.onkeydown = this.keyListener;
@@ -37,14 +40,14 @@ var searchAjax = {
     textInput: function (evt) {
         var q = evt.target.value.trim();
         if (q == '')return searchAjax.updateDisplay([]);
-        if(searchAjax.useHistory){
-            if(searchAjax.useLocalStorage){
-                if (localStorage.hasOwnProperty(q)) {
+        if (searchAjax.useHistory) {
+            if (searchAjax.useLocalStorage) {
+                if (!localStorage.hasOwnProperty(q)) {
                     searchAjax.search(q);
                 } else {
-                    searchAjax.updateDisplay(localStorage.getItem(q))
+                    searchAjax.updateDisplay(JSON.parse(localStorage.getItem(q)))
                 }
-            }else {
+            } else {
                 if (searchAjax.History[q] === undefined) {
                     searchAjax.search(q);
                 } else {
@@ -114,10 +117,10 @@ var searchAjax = {
             searchAjax.XMLHTTPObject.onreadystatechange = function () {
                 if (searchAjax.XMLHTTPObject.status == 200 && searchAjax.XMLHTTPObject.readyState == 4) {
                     var response = JSON.parse(searchAjax.XMLHTTPObject.responseText);
-                    if(searchAjax.useHistory){
-                        if(searchAjax.useLocalStorage){
-                            localStorage.setItem(q,response);
-                        }else {
+                    if (searchAjax.useHistory) {
+                        if (searchAjax.useLocalStorage) {
+                            localStorage.setItem(q, JSON.stringify(response));
+                        } else {
                             searchAjax.History[q] = response;
                         }
                     }
